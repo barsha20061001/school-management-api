@@ -1,92 +1,79 @@
-# 🎓 School Management API
+#  School Management API
 
-A Node.js and MySQL based REST API system to manage school data.
+A RESTful API built using **Node.js, Express.js, and MySQL** for managing school data efficiently.  
+This project allows users to:
+
+-  Add new schools to the database
+-  Retrieve schools sorted by nearest distance
+-  Access APIs through live deployment
+-  Store and manage data using MySQL
+-  Test APIs using Postman
+
+The distance calculation is performed dynamically using the user's latitude and longitude coordinates.
 
 ---
 
-# 🚀 Features
+#  Live Deployment
 
-✅ Add new schools  
-✅ Fetch schools sorted by nearest distance  
-✅ MySQL database integration  
-✅ RESTful APIs using Express.js  
-✅ Distance calculation using geographical coordinates  
+##  Live Base URL
+
+```bash
+https://school-management-api-lioh.onrender.com
+```
 
 ---
 
-# 🛠 Tech Stack
+#  Important Links
+
+##  GitHub Repository
+
+```bash
+https://github.com/barsha20061001/school-management-api
+```
+
+## Live API
+
+```bash
+https://school-management-api-lioh.onrender.com
+```
+
+##  Postman Collection
+
+(Add your exported Postman collection link here)
+
+```bash
+PASTE_POSTMAN_COLLECTION_LINK_HERE
+```
+
+---
+
+#  Tech Stack
 
 - Node.js
 - Express.js
 - MySQL
+- Render
 - Postman
-- GitHub
+- dotenv
 
 ---
 
-# 📂 Folder Structure
+#  Project Features
 
-```bash
-school-management-api
-│
-├── config
-├── controllers
-├── routes
-├── utils
-├── .env
-├── server.js
-├── package.json
-```
-
-# ⚙️ Installation
-
-## Clone Repository
-
-```bash
-git clone https://github.com/barsha20061001/school-management-api
-```
-
-## Move into project
-
-```bash
-cd school-management-api
-```
-
-## Install dependencies
-
-```bash
-npm install
-```
-
-## Setup environment variables
-
-Create `.env` file:
-
-```env
-PORT=5000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=school_management
-```
-
-## Start server
-
-```bash
-npx nodemon server.js
-```
+✅ Add school details into database  
+✅ Retrieve schools sorted by geographical proximity  
+✅ REST API architecture  
+✅ Input validation for all fields  
+✅ MySQL database integration  
+✅ Hosted live on Render  
+✅ Tested using Postman  
+✅ Environment-based configuration using dotenv  
 
 ---
 
-# 🗄 Database Setup
-
-Run this SQL in MySQL Workbench:
+#  Database Schema
 
 ```sql
-CREATE DATABASE school_management;
-
-USE school_management;
-
 CREATE TABLE schools (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -98,45 +85,218 @@ CREATE TABLE schools (
 
 ---
 
-# 📌 API Endpoints
+#  API Endpoints
 
-## 1️⃣ Add School API
+# 1. Add School API
 
-### Endpoint
+## Endpoint
 
 ```bash
 POST /addSchool
 ```
 
-### Sample Request
+## Live URL
+
+```bash
+https://school-management-api-lioh.onrender.com/addSchool
+```
+
+## Request Body
 
 ```json
 {
-  "name": "Delhi Public School",
+  "name": "ABC School",
   "address": "Kolkata",
   "latitude": 22.5726,
   "longitude": 88.3639
 }
 ```
 
----
+## Example Response
 
-## 2️⃣ List Schools API
-
-### Endpoint
-
-```bash
-GET /listSchools?latitude=22.5726&longitude=88.3639
+```json
+{
+  "success": true,
+  "message": "School added successfully"
+}
 ```
 
 ---
 
-# 📮 Postman Testing
+# 2. List Schools API
 
-All APIs tested successfully using Postman.
+## Endpoint
+
+```bash
+GET /listSchools
+```
+
+## Live URL
+
+```bash
+https://school-management-api-lioh.onrender.com/listSchools?latitude=22.5726&longitude=88.3639
+```
+
+## Query Parameters
+
+| Parameter | Type  | Required |
+| ---------- | ----- | -------- |
+| latitude   | float | Yes      |
+| longitude  | float | Yes      |
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "ABC School",
+      "address": "Kolkata",
+      "latitude": 22.5726,
+      "longitude": 88.3639,
+      "distance": 0
+    }
+  ]
+}
+```
 
 ---
 
-# 👩‍💻 Author
+#  Setup Instructions
 
-Barsha Mondal
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/barsha20061001/school-management-api.git
+```
+
+---
+
+## 2. Move Into Project Folder
+
+```bash
+cd school-management-api
+```
+
+---
+
+## 3. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 4. Create `.env` File
+
+Create a `.env` file in the root directory and add:
+
+```env
+DB_HOST=your_host
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=your_database
+DB_PORT=3306
+PORT=5000
+```
+
+---
+
+## 5. Create MySQL Table
+
+Run this SQL query:
+
+```sql
+CREATE TABLE schools (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    latitude FLOAT NOT NULL,
+    longitude FLOAT NOT NULL
+);
+```
+
+---
+
+## 6. Start Server
+
+```bash
+node server.js
+```
+
+Server runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# API Testing
+
+The APIs were tested successfully using:
+
+- Postman
+- Browser
+- Live Render Deployment
+
+---
+
+#  Project Screenshots
+
+## 🔹 API Test Response
+
+(Add Screenshot 1 Here)
+
+```md
+![API Test](PASTE_SCREENSHOT_LINK_1_HERE)
+```
+
+---
+
+## 🔹 Render Deployment
+
+(Add Screenshot 2 Here)
+
+```md
+![Render Deployment](PASTE_SCREENSHOT_LINK_2_HERE)
+```
+
+---
+
+#  Dependencies Used
+
+```json
+{
+  "cors": "^2.8.5",
+  "dotenv": "^16.0.0",
+  "express": "^4.18.2",
+  "mysql2": "^3.0.0"
+}
+```
+
+---
+
+#  Future Improvements
+
+- Authentication system
+- Admin dashboard
+- Pagination support
+- Advanced filtering
+- School update/delete APIs
+- Google Maps integration
+
+---
+
+#  Author
+
+## Barsha Mondal
+
+GitHub:
+
+```bash
+https://github.com/barsha20061001
+```
