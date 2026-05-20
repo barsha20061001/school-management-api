@@ -21,7 +21,7 @@ const addSchool = (req, res) => {
   const sql =
     "INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)";
 
-  db.query(sql, [name, address, latitude, longitude], (err, result) => {
+  db.query(sql, [name, address, latitude, longitude], (err) => {
     if (err) {
       return res.status(500).json({
         success: false,
@@ -49,7 +49,16 @@ const listSchools = (req, res) => {
   const userLat = parseFloat(latitude);
   const userLon = parseFloat(longitude);
 
-  db.query("SELECT * FROM schools", (err, schools) => {
+  if (isNaN(userLat) || isNaN(userLon)) {
+    return res.status(400).json({
+      success: false,
+      message: "Latitude and longitude must be valid numbers",
+    });
+  }
+
+  const sql = "SELECT * FROM schools";
+
+  db.query(sql, (err, schools) => {
     if (err) {
       return res.status(500).json({
         success: false,
@@ -60,16 +69,18 @@ const listSchools = (req, res) => {
     const sortedSchools = schools
       .map((school) => ({
         ...school,
-        distance: calculateDistance(
-          userLat,
-          userLon,
-          school.latitude,
-          school.longitude
+        distance: Number(
+          calculateDistance(
+            userLat,
+            userLon,
+            school.latitude,
+            school.longitude
+          ).toFixed(2)
         ),
       }))
       .sort((a, b) => a.distance - b.distance);
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: sortedSchools,
     });
@@ -80,4 +91,3 @@ module.exports = {
   addSchool,
   listSchools,
 };
-
