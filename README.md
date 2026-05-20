@@ -60,14 +60,14 @@ PASTE_POSTMAN_COLLECTION_LINK_HERE
 
 #  Project Features
 
-✅ Add school details into database  
-✅ Retrieve schools sorted by geographical proximity  
-✅ REST API architecture  
-✅ Input validation for all fields  
-✅ MySQL database integration  
-✅ Hosted live on Render  
-✅ Tested using Postman  
-✅ Environment-based configuration using dotenv  
+ Add school details into database  
+ Retrieve schools sorted by geographical proximity  
+ REST API architecture  
+ Input validation for all fields  
+ MySQL database integration  
+ Hosted live on Render  
+ Tested using Postman  
+ Environment-based configuration using dotenv  
 
 ---
 
