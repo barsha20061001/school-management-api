@@ -243,27 +243,6 @@ The APIs were tested successfully using:
 - Browser
 - Live Render Deployment
 
----
-
-#  Project Screenshots
-
-## 🔹 API Test Response
-
-(Add Screenshot 1 Here)
-
-```md
-![API Test](PASTE_SCREENSHOT_LINK_1_HERE)
-```
-
----
-
-## 🔹 Render Deployment
-
-(Add Screenshot 2 Here)
-
-```md
-![Render Deployment](PASTE_SCREENSHOT_LINK_2_HERE)
-```
 
 ---
 
