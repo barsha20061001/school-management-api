@@ -42,7 +42,7 @@ https://school-management-api-lioh.onrender.com
 
 
 ```bash
-https://barshadgp212-2893024.postman.co/workspace/Barsha-mondal's-Workspace~e2180071-6420-4d4c-85df-5b20ab0d268e/collection/55022561-5bfbedd7-29a4-4ad3-bb70-4fd1df215925?action=share&creator=55022561
+https://documenter.getpostman.com/view/55022561/2sBXwjvDnm
 ```
 
 ---
